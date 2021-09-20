@@ -11,14 +11,22 @@ vector<string> split(const string &);
  *
  * The function is expected to return a STRING.
  * The function accepts following parameters:
- *  1. INTEGER x1
- *  2. INTEGER v1
- *  3. INTEGER x2
- *  4. INTEGER v2
+ *  1. INTEGER x1  :: the starting point of x1
+ *  2. INTEGER v1  :: the rate of x1
+ *  3. INTEGER x2  :: the starting point of x2
+ *  4. INTEGER v2  :: the rate of x2
  */
 
-string kangaroo(int x1, int v1, int x2, int v2) {
-
+function kangaroo(x1, v1, x2, v2) {
+    // Write your code here
+    if ((x1 < x2) && (v1 < v2)) // if starting point and rate of x1 is less than starting  point and rate of x2, they will never catch up
+        return "NO"
+    else {
+        if ((v1 != v2) && ((x2 - x1) % (v1 - v2)) == 0) // if two rates are not equal and modulus of starting point difference and rate difference is 0 then they will meet
+            return "YES"
+        else // if they don't, they won't meet
+            return "NO"
+    }
 }
 
 int main()
